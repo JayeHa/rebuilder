@@ -1,3 +1,10 @@
+import { GlobalHeader } from "@components/GlobalHeader";
+
 export const App = () => {
-  return <div>RebuilderAI</div>;
+  return (
+    <div>
+      <GlobalHeader />
+      RebuilderAI
+    </div>
+  );
 };
