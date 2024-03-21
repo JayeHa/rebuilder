@@ -1,3 +1,4 @@
+import { Logo } from "@/assets/images";
 import { css } from "@emotion/react";
 
 export const GlobalHeader = () => {
@@ -7,6 +8,7 @@ export const GlobalHeader = () => {
         background: red;
       `}
     >
+      <Logo />
       <h1>GlobalHeader</h1>
     </header>
   );
