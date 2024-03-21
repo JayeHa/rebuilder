@@ -1,0 +1,20 @@
+{
+  "header": {
+    "navigation": {
+      "items": {
+        "service": "Service",
+        "technology": "Technology",
+        "about": "About",
+        "contact": "Contact"
+      },
+      "subItems": {
+        "about": {
+          "lightSourcePrediction": "Light-Source Prediction",
+          "materialEstimation": "Material Estimation",
+          "scanningPrecision": "Scanning Precision",
+          "spatialVolumetricRendering": "Spatial Volumetric Rendering"
+        }
+      }
+    }
+  }
+}

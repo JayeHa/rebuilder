@@ -1,0 +1,20 @@
+{
+  "header": {
+    "navigation": {
+      "items": {
+        "service": "Service",
+        "technology": "Technology",
+        "about": "About",
+        "contact": "Contact"
+      },
+      "subItems": {
+        "about": {
+          "lightSourcePrediction": "광원추론",
+          "materialEstimation": "재질추론",
+          "scanningPrecision": "실측크기",
+          "spatialVolumetricRendering": "3D 공간 영상"
+        }
+      }
+    }
+  }
+}
