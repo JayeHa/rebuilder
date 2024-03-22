@@ -1,6 +1,7 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
+import { useGlobalHeaderState } from "./hooks";
 import * as Styled from "./styles";
 
 export type ThemeType = "dark" | "light";
@@ -16,13 +17,14 @@ type Props = {
 export const GlobalHeader = ({ theme = "dark" }: Props) => {
   const { changeLanguage } = useLanguage();
 
-  return (
-    <Styled.Container themeMode={theme}>
-      <Styled.Header>
-        <Logo size="lg" />
+  const { headerHeight, navigationState } = useGlobalHeaderState();
 
-        {/* TODO: Navigation, LanguageSelector */}
-        <Navigation />
+  return (
+    <Styled.Container themeMode={theme} headerHeight={headerHeight}>
+      <Styled.Header>
+        <Logo size="lg" color={theme === "dark" ? "white" : "black"} />
+
+        <Navigation {...navigationState} />
 
         <div>
           <button

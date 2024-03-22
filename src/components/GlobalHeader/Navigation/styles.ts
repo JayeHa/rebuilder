@@ -1,9 +1,12 @@
 import { colors } from "@/styles/constants/colors";
+import { GLOBAL_HEADER_SIZE } from "@/styles/constants/sizes";
 import { flex } from "@/styles/utils/flex";
 import { mediaQueryScreenAndMaxWidth } from "@/styles/utils/mediaQuery";
 import styled from "@emotion/styled";
 
-export const Navigation = styled.nav``;
+export const Navigation = styled.nav`
+  height: 100%;
+`;
 
 export const NavList = styled.ul`
   ${flex({ gap: "46px" })}
@@ -12,6 +15,7 @@ export const NavList = styled.ul`
 export const NavItem = styled.li`
   position: relative;
   width: fit-content;
+  height: fit-content;
 
   font-weight: 500;
   font-size: 2rem;
@@ -43,4 +47,15 @@ export const NavItem = styled.li`
   font-size: 16px;
   line-height: 19px;
   `}
+`;
+
+export const SubNavList = styled.ul`
+  ${flex({ gap: "40px", justifyContent: "center" })}
+
+  position: absolute;
+  top: ${GLOBAL_HEADER_SIZE.HEIGHT + 20}px;
+  left: 0;
+
+  width: 100vw;
+  height: ${GLOBAL_HEADER_SIZE.HEIGHT_OPENED - GLOBAL_HEADER_SIZE.HEIGHT}px;
 `;

@@ -1,33 +1,34 @@
-import { getObjectEntries } from "@/utils/getObjectProperties";
-import { useTranslation } from "react-i18next";
+import { useGlobalHeaderState } from "../hooks";
+import { SubNavList } from "./SubNavList";
+import { useTranslationNavList } from "./hooks";
 import * as Styled from "./styles";
 
-export const Navigation = () => {
-  const { t } = useTranslation("common");
+type Props = ReturnType<typeof useGlobalHeaderState>["navigationState"];
 
-  const routeList = getObjectEntries(
-    t("header.navigation", { returnObjects: true })
-  );
+export const Navigation = ({ activeRoute, onRouteHover }: Props) => {
+  const navList = useTranslationNavList();
 
   return (
-    <Styled.Navigation>
+    <Styled.Navigation onMouseLeave={() => onRouteHover.deactivateRoute()}>
       <Styled.NavList>
-        {routeList.map(([route, item]) => {
-          const hasSubRoute = typeof item !== "string";
-          const title = hasSubRoute ? item.title : item;
+        {navList.map(([route, item]) => {
+          const isGroup = typeof item !== "string";
+          const handleMouseEnter = () => {
+            onRouteHover.deactivateRoute();
+            if (isGroup) {
+              onRouteHover.activateRoute(route);
+            }
+          };
+
+          const title = isGroup ? item.title : item;
+          const displaySubNav = isGroup && activeRoute === route;
 
           return (
-            <Styled.NavItem key={route}>
-              {title}
+            <div key={route} onMouseEnter={handleMouseEnter}>
+              <Styled.NavItem>{title}</Styled.NavItem>
 
-              {hasSubRoute && (
-                <ul hidden>
-                  {getObjectEntries(item.subItems).map(([subRoute, title]) => (
-                    <li key={subRoute}>{title}</li>
-                  ))}
-                </ul>
-              )}
-            </Styled.NavItem>
+              {displaySubNav && <SubNavList subItems={item.subItems} />}
+            </div>
           );
         })}
       </Styled.NavList>
