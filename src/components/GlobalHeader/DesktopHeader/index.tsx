@@ -1,6 +1,6 @@
 import { ColorKey } from "@/styles/constants/colors";
+import { Logo } from "../Logo";
 import { LanguageSelector } from "./LanguageSelector";
-import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 import { useDesktopHeaderState } from "./hooks";
 import * as Styled from "./styles";

@@ -1,6 +1,6 @@
 import { useResponsive } from "@/hooks/useResponsive";
 import { DesktopHeader } from "./DesktopHeader";
-import { MobileHeader } from "./MobileHeader";
+import { MobileHeader } from "./MobileHeader/MobileHeader";
 import * as Styled from "./styles";
 
 export type ThemeType = "dark" | "light";

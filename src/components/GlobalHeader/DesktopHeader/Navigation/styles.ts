@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 
 export const Navigation = styled.nav`
   height: 100%;
+  padding-top: 4px;
 `;
 
 export const NavList = styled.ul`

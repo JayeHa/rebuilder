@@ -6,7 +6,7 @@ export const App = () => {
 
   return (
     <div>
-      <GlobalHeader theme="light" />
+      <GlobalHeader theme="dark" />
 
       {t("3dModelSection.optimizationPart.title")}
     </div>

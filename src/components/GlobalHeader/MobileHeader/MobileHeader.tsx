@@ -2,7 +2,7 @@ import { Close, Menu } from "@/assets/images";
 import { ColorKey } from "@/styles/constants/colors";
 import { ActionButton } from "@components/Buttons/ActionButton";
 import { css } from "@emotion/react";
-import { Logo } from "./Logo";
+import { Logo } from "../Logo";
 import { useMobileHeaderState } from "./hooks";
 import * as Styled from "./styles";
 
