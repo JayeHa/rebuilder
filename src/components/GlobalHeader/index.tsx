@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/useLanguage";
 import { Logo } from "./Logo";
 import * as Styled from "./styles";
 
@@ -13,11 +13,7 @@ type Props = {
 }
 
 export const GlobalHeader = ({ theme = "dark" }: Props) => {
-  const { i18n } = useTranslation();
-
-  const changeLanguage = (language: "ko" | "en") => {
-    i18n.changeLanguage(language);
-  };
+  const { changeLanguage } = useLanguage();
 
   return (
     <Styled.Container themeMode={theme}>
