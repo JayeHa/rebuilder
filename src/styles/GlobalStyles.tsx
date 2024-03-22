@@ -119,6 +119,19 @@ export const GlobalStyles = () => (
       }
 
       button,
+      input,
+      select,
+      textarea {
+        background-color: transparent;
+        border: 0;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+      button,
       input {
         overflow: visible;
       }
