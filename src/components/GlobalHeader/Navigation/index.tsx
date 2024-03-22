@@ -5,23 +5,23 @@ import * as Styled from "./styles";
 
 type Props = NavigationState;
 
-export const Navigation = ({ activeRoute, onRouteHover }: Props) => {
+export const Navigation = ({ hoveredRoute, onRouteHover }: Props) => {
   const navList = useTranslationNavList();
 
   return (
-    <Styled.Navigation onMouseLeave={() => onRouteHover.deactivateRoute()}>
+    <Styled.Navigation onMouseLeave={() => onRouteHover.off()}>
       <Styled.NavList>
         {navList.map(([route, item]) => {
           const isGroup = typeof item !== "string";
           const handleMouseEnter = () => {
-            onRouteHover.deactivateRoute();
+            onRouteHover.off();
             if (isGroup) {
-              onRouteHover.activateRoute(route);
+              onRouteHover.on(route);
             }
           };
 
           const title = isGroup ? item.title : item;
-          const displaySubNav = isGroup && activeRoute === route;
+          const displaySubNav = isGroup && hoveredRoute === route;
 
           return (
             <div key={route} onMouseEnter={handleMouseEnter}>

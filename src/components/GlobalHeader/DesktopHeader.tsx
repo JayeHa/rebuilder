@@ -2,23 +2,26 @@ import { ColorKey } from "@/styles/constants/colors";
 import { LanguageSelector } from "./LanguageSelector";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
-import { NavigationState } from "./hooks";
+import { useDesktopHeaderState } from "./hooks";
 import * as Styled from "./styles";
 
 type Props = {
   svgColor: ColorKey;
-  navigationState: NavigationState;
 };
 
-export const DesktopHeader = ({ svgColor, navigationState }: Props) => {
+export const DesktopHeader = ({ svgColor }: Props) => {
+  const { isSubNavOpen, navigationState } = useDesktopHeaderState();
+
   return (
-    <Styled.DeskTopHeader>
-      <Logo size="lg" color={svgColor} />
+    <Styled.DesktopHeaderWrapper isSubNavOpen={isSubNavOpen}>
+      <Styled.DesktopHeader>
+        <Logo size="lg" color={svgColor} />
 
-      <Navigation {...navigationState} />
-      <div />
+        <Navigation {...navigationState} />
+        <div />
 
-      <LanguageSelector color={svgColor} />
-    </Styled.DeskTopHeader>
+        <LanguageSelector color={svgColor} />
+      </Styled.DesktopHeader>
+    </Styled.DesktopHeaderWrapper>
   );
 };

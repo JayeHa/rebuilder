@@ -1,41 +1,40 @@
-import { GLOBAL_HEADER_SIZE } from "@/styles/constants/sizes";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export type NavigationState = {
-  activeRoute: string | null;
+  hoveredRoute: string | null;
   onRouteHover: {
-    activateRoute: (route: string) => void;
-    deactivateRoute: () => void;
+    on: (route: string) => void;
+    off: () => void;
   };
 };
 
-export const useGlobalHeaderState = (): {
-  headerHeight: number;
+export const useDesktopHeaderState = (): {
+  isSubNavOpen: boolean;
   navigationState: NavigationState;
 } => {
-  const [activeRoute, setActiveRoute] = useState<string | null>(null);
-  const activateRoute = (route: string) => setActiveRoute(route);
-  const deactivateRoute = () => setActiveRoute(null);
-
-  // 활성화된 라우트에 따라 헤더 높이를 조절합니다.
-  const [headerHeight, setHeaderHeight] = useState<number>(
-    GLOBAL_HEADER_SIZE.HEIGHT
-  );
-  useEffect(() => {
-    const isOpen = Boolean(activeRoute);
-    setHeaderHeight(
-      isOpen ? GLOBAL_HEADER_SIZE.HEIGHT_OPENED : GLOBAL_HEADER_SIZE.HEIGHT
-    );
-  }, [activeRoute]);
+  const [hoveredRoute, setHoveredRoute] = useState<string | null>(null);
+  const on = (route: string) => setHoveredRoute(route);
+  const off = () => setHoveredRoute(null);
 
   return {
-    headerHeight,
+    isSubNavOpen: Boolean(hoveredRoute),
     navigationState: {
-      activeRoute,
+      hoveredRoute,
       onRouteHover: {
-        activateRoute,
-        deactivateRoute,
+        on,
+        off,
       },
     },
   };
+};
+
+export const useMobileHeaderState = (): {
+  isMobileNavOpen: boolean;
+  toggleMobileNavOpen: VoidFunction;
+} => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  const toggleMobileNavOpen = () => setIsMobileNavOpen((isOpen) => !isOpen);
+
+  return { isMobileNavOpen, toggleMobileNavOpen };
 };
