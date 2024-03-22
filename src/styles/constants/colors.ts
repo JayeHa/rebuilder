@@ -12,3 +12,7 @@ export const colors = {
 
 export type Colors = typeof colors;
 export type ColorKey = keyof Colors;
+
+export const gradients = {
+  hero: `linear-gradient(45deg, #1d5cff 18.46%, #2fd0b3 100%);`,
+};

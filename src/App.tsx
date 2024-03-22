@@ -1,14 +1,11 @@
 import { GlobalHeader } from "@components/GlobalHeader";
-import { useTranslation } from "react-i18next";
+import { ServicePage } from "./pages/servicePage";
 
 export const App = () => {
-  const { t } = useTranslation("service");
-
   return (
     <div>
       <GlobalHeader theme="dark" />
-
-      {t("3dModelSection.optimizationPart.title")}
+      <ServicePage />
     </div>
   );
 };
