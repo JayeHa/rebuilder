@@ -1,5 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { Logo } from "./Logo";
+import { Navigation } from "./Navigation";
 import * as Styled from "./styles";
 
 export type ThemeType = "dark" | "light";
@@ -21,6 +22,8 @@ export const GlobalHeader = ({ theme = "dark" }: Props) => {
         <Logo size="lg" />
 
         {/* TODO: Navigation, LanguageSelector */}
+        <Navigation />
+
         <div>
           <button
             type="button"

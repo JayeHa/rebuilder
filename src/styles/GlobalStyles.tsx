@@ -21,7 +21,8 @@ export const GlobalStyles = () => (
         min-height: -webkit-fill-available;
 
         font-family: ${fontFamily.main};
-        line-height: 1.15;
+        font-size: 62.5%;
+        white-space: nowrap;
         -webkit-text-size-adjust: 100%;
       }
 
@@ -205,6 +206,12 @@ export const GlobalStyles = () => (
 
       template {
         display: none;
+      }
+
+      ul,
+      ol {
+        padding-left: 0;
+        list-style: none;
       }
 
       [hidden] {
