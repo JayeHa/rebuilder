@@ -1,4 +1,5 @@
 import { colors } from "@/styles/constants/colors";
+import { animations } from "@/styles/constants/keyframes";
 import { MOBILE_GLOBAL_HEADER_SIZE } from "@/styles/constants/sizes";
 import { flex } from "@/styles/utils/flex";
 import { mediaQueryScreenAndMaxWidth } from "@/styles/utils/mediaQuery";
@@ -43,6 +44,8 @@ export const SlideDownMenu = styled.div`
   top: 100%;
 
   width: 100%;
+
+  animation: ${animations.fadeIn} 0.35s ease-in-out;
 `;
 
 export const NavList = styled.ul`

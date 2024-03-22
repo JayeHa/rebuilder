@@ -23,7 +23,9 @@ export const MobileHeader = ({ svgColor }: Props) => {
           {isMobileNavOpen && <Close color={svgColor} />}
         </ActionButton>
 
-        {isMobileNavOpen && <SlideDownMenu />}
+        {isMobileNavOpen && (
+          <SlideDownMenu toggleMobileNavOpen={toggleMobileNavOpen} />
+        )}
       </Styled.MobileHeader>
     </Styled.MobileHeaderWrapper>
   );

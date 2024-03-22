@@ -4,8 +4,9 @@ import * as Styled from "./styles";
 
 const CURRENT_ROUTE = "service";
 
-// TODO: 애니메이션 적용하기
-export const SlideDownMenu = () => {
+type Props = { toggleMobileNavOpen: VoidFunction };
+
+export const SlideDownMenu = ({ toggleMobileNavOpen }: Props) => {
   const navList = useTranslationNavList();
 
   const { language, changeLanguage } = useLanguage();
@@ -18,7 +19,11 @@ export const SlideDownMenu = () => {
           const title = isGroup ? item.title : item;
 
           return (
-            <Styled.NavItem key={route} isCurrent={route === CURRENT_ROUTE}>
+            <Styled.NavItem
+              key={route}
+              isCurrent={route === CURRENT_ROUTE}
+              onClick={toggleMobileNavOpen}
+            >
               {title}
             </Styled.NavItem>
           );
@@ -30,6 +35,7 @@ export const SlideDownMenu = () => {
           isActive={language === "ko"}
           onClick={() => {
             changeLanguage("ko");
+            toggleMobileNavOpen();
           }}
           type="button"
         >
@@ -40,6 +46,7 @@ export const SlideDownMenu = () => {
           isActive={language === "en"}
           onClick={() => {
             changeLanguage("en");
+            toggleMobileNavOpen();
           }}
           type="button"
         >
