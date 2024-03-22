@@ -20,13 +20,16 @@ export const GlobalHeader = ({ theme = "dark" }: Props) => {
   const svgColor = theme === "dark" ? "white" : "black";
 
   return (
-    <Styled.Container themeMode={theme} headerHeight={headerHeight}>
-      <Styled.Header>
-        <Logo size="lg" color={svgColor} />
+    <Styled.Container themeMode={theme}>
+      <Styled.Header headerHeight={headerHeight}>
+        <Styled.Wrapper>
+          <Logo size="lg" color={svgColor} />
 
-        <Navigation {...navigationState} />
+          <Navigation {...navigationState} />
+          <div />
 
-        <LanguageSelector color={svgColor} />
+          <LanguageSelector color={svgColor} />
+        </Styled.Wrapper>
       </Styled.Header>
     </Styled.Container>
   );

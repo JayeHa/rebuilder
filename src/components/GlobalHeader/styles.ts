@@ -21,7 +21,6 @@ const THEME_MODE_STYLES: Record<ThemeType, SerializedStyles> = {
 
 export const Container = styled.div<{
   themeMode: ThemeType;
-  headerHeight: number;
 }>`
   position: fixed;
   top: 0;
@@ -29,14 +28,23 @@ export const Container = styled.div<{
   right: 0;
   z-index: ${zIndex.header};
 
-  height: ${({ headerHeight }) => headerHeight}px;
-
   border-bottom: 1px solid;
-  padding: 0 20px;
-
-  transition: all 0.2s ease-in-out 0s;
 
   ${({ themeMode }) => THEME_MODE_STYLES[themeMode]};
+`;
+
+export const Header = styled.header<{
+  headerHeight: number;
+}>`
+  width: 100%;
+  max-width: 1200px;
+  height: ${({ headerHeight }) => headerHeight}px;
+
+  padding: 0 30px;
+
+  margin: 0 auto;
+
+  transition: all 0.2s ease-in-out 0s;
 
   ${mediaQueryScreenAndMaxWidth("tablet")`
   height: 64px;
@@ -48,13 +56,12 @@ export const Container = styled.div<{
   `}
 `;
 
-export const Header = styled.header`
-  ${flex({ justifyContent: "space-between", alignItems: "flex-start" })}
-
-  width: 100%;
-  height: 100%;
-  max-width: 1200px;
+export const Wrapper = styled.div`
+  ${flex({
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  })};
 
   padding-top: 33px;
-  margin: 0 auto;
 `;
