@@ -5,7 +5,7 @@ const ns = ["service", "common"];
 const supportedLngs = ["en", "ko"];
 
 const loadLocaleData = (lng, ns) =>
-  import(`../public/locales/${lng}/${ns}.json`).then((m) => m.default);
+  import(`./locales/${lng}/${ns}.json`).then((m) => m.default);
 
 const resources = await Promise.all(
   supportedLngs.map(async (lng) => {

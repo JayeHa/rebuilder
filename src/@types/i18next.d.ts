@@ -1,4 +1,4 @@
-import type * as ko from "@locales/ko";
+import type * as ko from "@/locales/ko";
 import "i18next";
 
 declare module "i18next" {
