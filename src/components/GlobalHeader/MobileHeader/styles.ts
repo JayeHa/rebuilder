@@ -4,6 +4,8 @@ import { flex } from "@/styles/utils/flex";
 import { mediaQueryScreenAndMaxWidth } from "@/styles/utils/mediaQuery";
 import styled from "@emotion/styled";
 
+const GAP = "32px";
+
 export const MobileHeaderWrapper = styled.div<{
   isMobileNavOpen: boolean;
 }>`
@@ -36,10 +38,65 @@ export const MobileHeader = styled.div`
   padding: 20px 0;
 `;
 
-export const NavBar = styled.div`
+export const SlideDownMenu = styled.div`
   position: absolute;
   top: 100%;
 
+  width: 100%;
+`;
+
+export const NavList = styled.ul`
+  ${flex({ flexDirection: "column", gap: GAP })}
+  padding-top: ${GAP};
+`;
+
+export const NavItem = styled.li<{ isCurrent: boolean }>`
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: ${({ isCurrent }) => (isCurrent ? "700" : "500")};
+
   color: ${colors.white};
-  background: red;
+  cursor: pointer;
+`;
+
+export const LanguageSelector = styled.div`
+  ${flex({ flexDirection: "row" })}
+  margin-top: ${GAP};
+`;
+
+export const LanguageButton = styled.button<{ isActive: boolean }>`
+${flex()}
+
+  height: 19px;
+
+  padding: 0;
+
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 19px;
+
+  cursor: pointer;
+
+  ${({ isActive }) =>
+    isActive ? `color: ${colors.white}` : `color: ${colors.gray3}`};
+
+  &:not(:first-of-type) {
+    &:before {
+      content: "";
+
+      display: inline-block;
+      width: 3px;
+      height: 12px;
+
+      margin: 3px 6px;
+
+
+      border-width: 0px thin 0px 0px;
+      border-style: solid;
+      border-color: rgba(${colors.black}, 0.12);
+    }
+  }
+
+
+  }
 `;

@@ -19,19 +19,19 @@ function getResponsive() {
   let breakpoint: BreakPoint = "lgDesktop";
   let isMobileDevice = false;
 
-  if (innerWidth < breakpoints.smDesktop) {
+  if (innerWidth <= breakpoints.smDesktop) {
     breakpoint = "smDesktop";
     isMobileDevice = false;
   }
-  if (innerWidth < breakpoints.laptop) {
+  if (innerWidth <= breakpoints.laptop) {
     breakpoint = "laptop";
     isMobileDevice = false;
   }
-  if (innerWidth < breakpoints.tablet) {
+  if (innerWidth <= breakpoints.tablet) {
     breakpoint = "tablet";
     isMobileDevice = true;
   }
-  if (innerWidth < breakpoints.mobile) {
+  if (innerWidth <= breakpoints.mobile) {
     breakpoint = "mobile";
     isMobileDevice = true;
   }
