@@ -1,4 +1,4 @@
-import { useLanguage } from "@/hooks/useLanguage";
+import { LanguageSelector } from "./LanguageSelector";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 import { useGlobalHeaderState } from "./hooks";
@@ -15,35 +15,18 @@ type Props = {
 }
 
 export const GlobalHeader = ({ theme = "dark" }: Props) => {
-  const { changeLanguage } = useLanguage();
-
   const { headerHeight, navigationState } = useGlobalHeaderState();
+
+  const svgColor = theme === "dark" ? "white" : "black";
 
   return (
     <Styled.Container themeMode={theme} headerHeight={headerHeight}>
       <Styled.Header>
-        <Logo size="lg" color={theme === "dark" ? "white" : "black"} />
+        <Logo size="lg" color={svgColor} />
 
         <Navigation {...navigationState} />
 
-        <div>
-          <button
-            type="button"
-            onClick={() => {
-              changeLanguage("ko");
-            }}
-          >
-            한국어 변경
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              changeLanguage("en");
-            }}
-          >
-            영어 변경
-          </button>
-        </div>
+        <LanguageSelector color={svgColor} />
       </Styled.Header>
     </Styled.Container>
   );

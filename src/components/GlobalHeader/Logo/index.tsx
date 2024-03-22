@@ -1,5 +1,5 @@
 import { Logo as LogoSvg } from "@/assets/images";
-import { colors } from "@/styles/constants/colors";
+import { ColorKey, colors } from "@/styles/constants/colors";
 
 type LogoSize = "sm" | "lg";
 
@@ -10,7 +10,7 @@ const LOGO_SIZE_MAP: Record<LogoSize, number> = {
 
 type Props = {
   size: LogoSize;
-  color?: keyof typeof colors;
+  color?: ColorKey;
 };
 
 export const Logo = ({ size, color = "white" }: Props) => {
