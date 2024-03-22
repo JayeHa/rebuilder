@@ -1,8 +1,18 @@
-import { Logo } from "@/assets/images";
-import { css } from "@emotion/react";
 import { useTranslation } from "react-i18next";
+import { Logo } from "./Logo";
+import * as Styled from "./styles";
 
-export const GlobalHeader = () => {
+export type ThemeType = "dark" | "light";
+
+type Props = {
+  theme?: ThemeType;
+};
+
+{
+  /* TODO: MobileHeader, DesktopHeader */
+}
+
+export const GlobalHeader = ({ theme = "dark" }: Props) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (language: "ko" | "en") => {
@@ -10,32 +20,30 @@ export const GlobalHeader = () => {
   };
 
   return (
-    <header
-      css={css`
-        background: red;
-      `}
-    >
-      <Logo />
-      <h1>GlobalHeader</h1>
+    <Styled.Container themeMode={theme}>
+      <Styled.Header>
+        <Logo size="lg" />
 
-      <div>
-        <button
-          type="button"
-          onClick={() => {
-            changeLanguage("ko");
-          }}
-        >
-          한국어 변경
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            changeLanguage("en");
-          }}
-        >
-          영어 변경
-        </button>
-      </div>
-    </header>
+        {/* TODO: Navigation, LanguageSelector */}
+        <div>
+          <button
+            type="button"
+            onClick={() => {
+              changeLanguage("ko");
+            }}
+          >
+            한국어 변경
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              changeLanguage("en");
+            }}
+          >
+            영어 변경
+          </button>
+        </div>
+      </Styled.Header>
+    </Styled.Container>
   );
 };
