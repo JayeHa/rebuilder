@@ -4,7 +4,7 @@ export const useMobileHeaderState = (): {
   isMobileNavOpen: boolean;
   toggleMobileNavOpen: VoidFunction;
 } => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
 
   const toggleMobileNavOpen = () => setIsMobileNavOpen((isOpen) => !isOpen);
 

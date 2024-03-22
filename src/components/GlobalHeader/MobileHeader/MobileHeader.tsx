@@ -1,8 +1,8 @@
 import { Close, Menu } from "@/assets/images";
 import { ColorKey } from "@/styles/constants/colors";
 import { ActionButton } from "@components/Buttons/ActionButton";
-import { css } from "@emotion/react";
 import { Logo } from "../Logo";
+import { SlideDownMenu } from "./SlideDownMenu";
 import { useMobileHeaderState } from "./hooks";
 import * as Styled from "./styles";
 
@@ -23,15 +23,7 @@ export const MobileHeader = ({ svgColor }: Props) => {
           {isMobileNavOpen && <Close color={svgColor} />}
         </ActionButton>
 
-        {isMobileNavOpen && (
-          <div
-            css={css`
-              position: absolute;
-            `}
-          >
-            네비게이션바
-          </div>
-        )}
+        {isMobileNavOpen && <SlideDownMenu />}
       </Styled.MobileHeader>
     </Styled.MobileHeaderWrapper>
   );

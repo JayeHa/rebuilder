@@ -1,3 +1,4 @@
+import { colors } from "@/styles/constants/colors";
 import { MOBILE_GLOBAL_HEADER_SIZE } from "@/styles/constants/sizes";
 import { flex } from "@/styles/utils/flex";
 import { mediaQueryScreenAndMaxWidth } from "@/styles/utils/mediaQuery";
@@ -24,6 +25,8 @@ export const MobileHeaderWrapper = styled.div<{
 `;
 
 export const MobileHeader = styled.div`
+  position: relative;
+
   ${flex({
     flexDirection: "row",
     justifyContent: "space-between",
@@ -31,4 +34,12 @@ export const MobileHeader = styled.div`
   })};
 
   padding: 20px 0;
+`;
+
+export const NavBar = styled.div`
+  position: absolute;
+  top: 100%;
+
+  color: ${colors.white};
+  background: red;
 `;

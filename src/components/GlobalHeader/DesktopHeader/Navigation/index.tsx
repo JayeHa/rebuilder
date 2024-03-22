@@ -1,6 +1,6 @@
+import { useTranslationNavList } from "@/hooks/useTranslateNavList";
 import { NavigationState } from "../hooks";
 import { SubNavList } from "./SubNavList";
-import { useTranslationNavList } from "./hooks";
 import * as Styled from "./styles";
 
 type Props = NavigationState;
