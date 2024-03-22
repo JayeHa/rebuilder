@@ -1,6 +1,6 @@
-import { LanguageSelector } from "./LanguageSelector";
-import { Logo } from "./Logo";
-import { Navigation } from "./Navigation";
+import { useResponsive } from "@/hooks/useResponsive";
+import { DesktopHeader } from "./DesktopHeader";
+import { MobileHeader } from "./MobileHeader";
 import { useGlobalHeaderState } from "./hooks";
 import * as Styled from "./styles";
 
@@ -10,26 +10,25 @@ type Props = {
   theme?: ThemeType;
 };
 
-{
-  /* TODO: MobileHeader, DesktopHeader */
-}
-
 export const GlobalHeader = ({ theme = "dark" }: Props) => {
   const { headerHeight, navigationState } = useGlobalHeaderState();
+  const { isMobileDevice } = useResponsive();
 
   const svgColor = theme === "dark" ? "white" : "black";
 
   return (
     <Styled.Container themeMode={theme}>
       <Styled.Header headerHeight={headerHeight}>
-        <Styled.Wrapper>
-          <Logo size="lg" color={svgColor} />
+        {!isMobileDevice && (
+          <DesktopHeader
+            svgColor={svgColor}
+            navigationState={navigationState}
+          />
+        )}
 
-          <Navigation {...navigationState} />
-          <div />
-
-          <LanguageSelector color={svgColor} />
-        </Styled.Wrapper>
+        {isMobileDevice && (
+          <MobileHeader svgColor={svgColor} navigationState={navigationState} />
+        )}
       </Styled.Header>
     </Styled.Container>
   );

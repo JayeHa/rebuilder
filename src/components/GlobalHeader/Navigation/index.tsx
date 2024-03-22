@@ -1,9 +1,9 @@
-import { useGlobalHeaderState } from "../hooks";
+import { NavigationState } from "../hooks";
 import { SubNavList } from "./SubNavList";
 import { useTranslationNavList } from "./hooks";
 import * as Styled from "./styles";
 
-type Props = ReturnType<typeof useGlobalHeaderState>["navigationState"];
+type Props = NavigationState;
 
 export const Navigation = ({ activeRoute, onRouteHover }: Props) => {
   const navList = useTranslationNavList();

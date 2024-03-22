@@ -56,7 +56,7 @@ export const Header = styled.header<{
   `}
 `;
 
-export const Wrapper = styled.div`
+export const DeskTopHeader = styled.div`
   ${flex({
     flexDirection: "row",
     alignItems: "center",

@@ -1,7 +1,18 @@
 import { GLOBAL_HEADER_SIZE } from "@/styles/constants/sizes";
 import { useEffect, useState } from "react";
 
-export const useGlobalHeaderState = () => {
+export type NavigationState = {
+  activeRoute: string | null;
+  onRouteHover: {
+    activateRoute: (route: string) => void;
+    deactivateRoute: () => void;
+  };
+};
+
+export const useGlobalHeaderState = (): {
+  headerHeight: number;
+  navigationState: NavigationState;
+} => {
   const [activeRoute, setActiveRoute] = useState<string | null>(null);
   const activateRoute = (route: string) => setActiveRoute(route);
   const deactivateRoute = () => setActiveRoute(null);
