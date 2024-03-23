@@ -38,6 +38,8 @@ export const HeroSection = () => {
 
   const styles = useVideoAnimation({ scrollYProgress });
 
+  console.log(scrollYProgress, scrollY);
+
   return (
     <Styled.Section ref={ref}>
       <Styled.FixedWrapper>
