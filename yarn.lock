@@ -704,6 +704,11 @@
     "@svgr/hast-util-to-babel-ast" "8.0.0"
     svg-parser "^2.0.4"
 
+"@toss/scroll-animation@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@toss/scroll-animation/-/scroll-animation-1.2.6.tgz#ce45fa8518ec5afbcd35aee1388d857b57a25806"
+  integrity sha512-d1X2fzmbxpZKZB89l+M7Y4yWhhd1SKAMZ1iQRhIKsA6lqdZ9L/v4ejypWWasS4e717R3eSDsaRb2wx7tPqrr1w==
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.5.tgz#3df15f27ba85319caa07ba08d0721889bb39c017"
