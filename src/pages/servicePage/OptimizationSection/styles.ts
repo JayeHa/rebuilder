@@ -1,3 +1,4 @@
+import { colors } from "@/styles/constants/colors";
 import styled from "@emotion/styled";
 
 export const StickyContainer = styled.div`
@@ -7,8 +8,9 @@ export const StickyContainer = styled.div`
   flex-shrink: 0;
 
   height: fit-content;
-  padding: 120px 0px 190px;
 
+  padding-top: 120px;
+  margin-bottom: 190px;
   margin-right: 40px;
 `;
 
@@ -32,11 +34,13 @@ export const Title = styled.h2<{ isActive: boolean }>`
     isActive
       ? `color: rgb(0, 0, 0);
   font-weight: 600;`
-      : `color: rgb(189, 193, 199);
+      : `color: ${colors.gray2};
       font-weight: 500;`}
 `;
 
 export const Text = styled.span`
+  display: inline-block;
+
   margin-bottom: 60px;
 
   font-weight: 500;

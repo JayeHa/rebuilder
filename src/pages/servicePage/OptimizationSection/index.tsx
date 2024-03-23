@@ -1,27 +1,28 @@
 import { Flex, FlexColumn } from "@/styles/utils/flex";
 import { fullWidth } from "@/styles/utils/sizes";
+import { Image } from "@components/Image";
 import { Section } from "@components/Section";
-import { css } from "@emotion/react";
 import { useTranslation } from "react-i18next";
+import { useOptimizationSectionAnimation } from "./hooks";
 import * as Styled from "./styles";
 
 export const OptimizationSection = () => {
   const { t } = useTranslation("service", { keyPrefix: "optimizationSection" });
 
+  const { elementRef, targetRef, isActive } = useOptimizationSectionAnimation();
+  const currentPart = isActive ? "usagePart" : "optimizationPart";
+
   return (
-    <Section
-      backgroundColor="background"
-      css={css`
-        padding-bottom: 200px;
-      `}
-    >
+    <Section backgroundColor="background">
       <Flex css={fullWidth}>
-        <Styled.StickyContainer>
+        <Styled.StickyContainer ref={elementRef}>
           <Styled.Strong>3D model</Styled.Strong>
-          <Styled.Title isActive={true}>
+          <Styled.Title isActive={currentPart === "optimizationPart"}>
             {t("optimizationPart.title")}
           </Styled.Title>
-          <Styled.Title isActive={false}>{t("usagePart.title")}</Styled.Title>
+          <Styled.Title isActive={currentPart === "usagePart"}>
+            {t("usagePart.title")}
+          </Styled.Title>
         </Styled.StickyContainer>
 
         <FlexColumn gap="230px">
@@ -33,17 +34,17 @@ export const OptimizationSection = () => {
               {t("optimizationPart.desktopDescription.text2")}
             </Styled.Text>
 
-            <img src="/images/optimization1.png" />
+            <Image src="/images/optimization1.png" />
           </article>
 
-          <article>
+          <article ref={targetRef} style={{ paddingBottom: "200px" }}>
             {/* hiddenTitle */}
             <Styled.Text>
               {t("usagePart.desktopDescription.text1")}
               <br />
               {t("usagePart.desktopDescription.text2")}
             </Styled.Text>
-            <img src="/images/optimization1.png" />
+            <Image src="/images/optimization1.png" />
           </article>
         </FlexColumn>
       </Flex>
