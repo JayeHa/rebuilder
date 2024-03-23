@@ -1,15 +1,13 @@
 import { GlobalHeader } from "@components/GlobalHeader";
-import { css } from "@emotion/react";
 import { useScrollProgress } from "@toss/scroll-animation";
-import { useHeroSectionAnimation } from "./hooks/useHeroSectionAnimation";
 import * as Styled from "./styles";
+import { useHeroSectionAnimation } from "./useHeroSectionAnimation";
 
 export const HeroSection = () => {
   const { ref, scrollYProgress } = useScrollProgress({
     triggerHook: "onLeave",
     clip: true,
   });
-
   const styles = useHeroSectionAnimation({ scrollYProgress });
 
   return (
@@ -25,30 +23,20 @@ export const HeroSection = () => {
             <source src="/videos/main_video.mp4" type="video/mp4" />
           </Styled.Video>
 
-          <div
-            css={css`
-              font-size: 80px;
-              color: red;
-            `}
-            style={styles.text1}
-          >
-            <span>3D Digital Transformation</span>
-          </div>
+          <Styled.Text1Wrapper style={styles.text1}>
+            <Styled.Text1>3D Digital Transformation</Styled.Text1>
+          </Styled.Text1Wrapper>
 
-          <div
-            css={css`
-              font-size: 80px;
-              color: yellow;
-            `}
-            style={styles.text2}
+          <Styled.Text2Wrapper
+            style={{ ...styles.text2, position: styles.fixedWrapper.position }}
           >
-            <span>3D Digital Transformation</span>
-            <span>
+            <Styled.Text2Small>3D Digital Transformation</Styled.Text2Small>
+            <Styled.Text2Large>
               The Next Generation of
               <br />
               Digital Transformation
-            </span>
-          </div>
+            </Styled.Text2Large>
+          </Styled.Text2Wrapper>
         </Styled.FixedWrapper>
       </Styled.Section>
     </>

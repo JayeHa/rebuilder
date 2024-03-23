@@ -16,7 +16,7 @@ interface StyleState {
   };
   text2: {
     opacity: number;
-    display: "block" | "none";
+    display: "flex" | "none";
   };
   fixedWrapper: {
     position: "fixed" | "absolute";
@@ -55,8 +55,8 @@ const ANIMATION_BREAKPOINTS = {
       to: null,
     },
     text2: {
-      from: { opacity: 0.2, display: "block" },
-      to: { opacity: 1, display: "block" },
+      from: { opacity: 0.2, display: "flex" },
+      to: { opacity: 1, display: "flex" },
     },
     fixedWrapper: null,
     section: null,
@@ -70,7 +70,7 @@ const ANIMATION_BREAKPOINTS = {
     },
     text1: null,
     text2: {
-      from: { opacity: 1, display: "block" },
+      from: { opacity: 1, display: "flex" },
       to: null,
     },
     fixedWrapper: null,
@@ -90,7 +90,7 @@ const ANIMATION_BREAKPOINTS = {
     },
     text1: null,
     text2: {
-      from: { opacity: 1, display: "block" },
+      from: { opacity: 1, display: "flex" },
       to: null,
     },
     fixedWrapper: {
