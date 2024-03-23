@@ -1,19 +1,23 @@
 import { BannerLogo } from "@/assets/images";
 import { Flex, FlexColumn } from "@/styles/utils/flex";
 import { Button } from "@components/Buttons/Button";
+import { useScrollProgress } from "@toss/scroll-animation";
 import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
 
 export const Banner = () => {
   const { t } = useTranslation("service", { keyPrefix: "bannerSection" });
-  // const { ref, scrollYProgress } = useScrollProgress({
-  //   triggerHook: "onLeave",
-  //   clip: true,
-  // });
+  const { ref, scrollYProgress } = useScrollProgress<HTMLDivElement>({
+    triggerHook: "onEnter",
+    duration: "85vh",
+    clip: true,
+  });
 
   return (
-    <Styled.Container>
-      <Styled.Background />
+    <Styled.Container ref={ref}>
+      <Styled.Background
+        style={{ backgroundPositionY: `${scrollYProgress * 100}%` }}
+      />
 
       <Styled.Banner>
         <Styled.FlexColumn>
