@@ -1,7 +1,7 @@
 import { fullWidth } from "@/styles/utils/sizes";
 import { VideoHTMLAttributes } from "react";
 
-type Props = VideoHTMLAttributes<HTMLVideoElement> & {
+export type VideoProps = VideoHTMLAttributes<HTMLVideoElement> & {
   src: string;
   fullWidth?: boolean;
 };
@@ -10,7 +10,7 @@ export const Video = ({
   src,
   fullWidth: isFullWidth = true,
   ...props
-}: Props) => {
+}: VideoProps) => {
   return (
     <video
       loop

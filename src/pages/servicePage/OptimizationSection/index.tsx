@@ -2,6 +2,7 @@ import { Flex, FlexColumn } from "@/styles/utils/flex";
 import { fullWidth } from "@/styles/utils/sizes";
 import { Image } from "@components/Image";
 import { Section } from "@components/Section";
+import { OverlayVideo } from "@components/VideoPlayer/OverlayVideo";
 import { useTranslation } from "react-i18next";
 import { useOptimizationSectionAnimation } from "./hooks";
 import * as Styled from "./styles";
@@ -44,7 +45,17 @@ export const OptimizationSection = () => {
               <br />
               {t("usagePart.desktopDescription.text2")}
             </Styled.Text>
-            <Image src="/images/optimization1.png" />
+
+            <Flex gap="24px">
+              <OverlayVideo
+                src="/videos/service_video_pc_ko.mp4"
+                overlayImgSrc="/images/video_overlay_pc_ko.png"
+              />
+              <OverlayVideo
+                src="/videos/service_video2_pc_ko.mp4"
+                overlayImgSrc="/images/video_overlay2_pc_ko.png"
+              />
+            </Flex>
           </article>
         </FlexColumn>
       </Flex>
