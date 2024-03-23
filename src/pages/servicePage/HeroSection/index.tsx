@@ -1,4 +1,5 @@
 import { GlobalHeader } from "@components/GlobalHeader";
+import { css } from "@emotion/react";
 import { useScrollProgress } from "@toss/scroll-animation";
 import * as Styled from "./styles";
 import { useHeroSectionAnimation } from "./useHeroSectionAnimation";
@@ -12,12 +13,14 @@ export const HeroSection = () => {
 
   return (
     <>
-      <GlobalHeader theme={styles.section.headerTheme} />
+      <GlobalHeader
+        theme={styles.header.theme}
+        css={css`
+          position: ${styles.header.position};
+        `}
+      />
 
-      <Styled.Section
-        ref={ref}
-        style={{ background: styles.section.background }}
-      >
+      <Styled.Section ref={ref} style={styles.section}>
         <Styled.FixedWrapper style={styles.fixedWrapper}>
           <Styled.Video loop playsInline autoPlay muted style={styles.video}>
             <source src="/videos/main_video.mp4" type="video/mp4" />

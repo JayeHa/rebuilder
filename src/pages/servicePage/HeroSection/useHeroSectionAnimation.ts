@@ -23,8 +23,11 @@ interface StyleState {
     height: "100vh" | "150vh";
   };
   section: {
-    headerTheme: ThemeType;
     background: string;
+  };
+  header: {
+    theme: ThemeType;
+    position: "fixed" | "absolute";
   };
 }
 
@@ -42,6 +45,7 @@ const ANIMATION_BREAKPOINTS = {
     text2: null,
     fixedWrapper: null,
     section: null,
+    header: null,
   },
 
   // video의 blur고정 및 scale 커짐, text1이 없어지고, text2가 서서히 나타남
@@ -60,6 +64,7 @@ const ANIMATION_BREAKPOINTS = {
     },
     fixedWrapper: null,
     section: null,
+    header: null,
   },
 
   // 헤더의 테마, 섹션의 background가 바뀌고 video가 사라짐, text2고정
@@ -76,8 +81,13 @@ const ANIMATION_BREAKPOINTS = {
     fixedWrapper: null,
     section: {
       from: {
-        headerTheme: "light",
         background: gradients.hero,
+      },
+    },
+    header: {
+      from: {
+        headerTheme: "light",
+        position: "fixed",
       },
     },
   },
@@ -102,8 +112,44 @@ const ANIMATION_BREAKPOINTS = {
     },
     section: {
       from: {
-        headerTheme: "light",
         background: gradients.hero,
+      },
+    },
+    header: {
+      from: {
+        headerTheme: "light",
+        position: "fixed",
+      },
+    },
+  },
+
+  // header의 position이 absolute로 변경
+  0.88: {
+    video: {
+      from: { scale: 12.5, blur: 0.5, visibility: "hidden" },
+      to: { scale: 25, blur: 0.5 },
+    },
+    text1: null,
+    text2: {
+      from: { opacity: 1, display: "flex" },
+      to: null,
+    },
+    fixedWrapper: {
+      from: {
+        background: gradients.hero,
+        position: "absolute",
+        height: "150vh",
+      },
+    },
+    section: {
+      from: {
+        background: gradients.hero,
+      },
+    },
+    header: {
+      from: {
+        headerTheme: "light",
+        position: "absolute",
       },
     },
   },
@@ -133,8 +179,11 @@ export const useHeroSectionAnimation = ({ scrollYProgress }: Props) => {
       height: "100vh",
     },
     section: {
-      headerTheme: "dark",
       background: colors.black,
+    },
+    header: {
+      theme: "dark",
+      position: "fixed",
     },
   });
 
@@ -224,11 +273,24 @@ export const useHeroSectionAnimation = ({ scrollYProgress }: Props) => {
       return section
         ? ({
             background: section.from.background,
-            headerTheme: section.from.headerTheme,
           } as const)
         : ({
             background: colors.black,
-            headerTheme: "dark",
+          } as const);
+    };
+
+    // header 스타일 정의 ===============================
+    const getHeaderStyles = () => {
+      const { header } = currentAnimation;
+
+      return header
+        ? ({
+            theme: header.from.headerTheme,
+            position: header.from.position,
+          } as const)
+        : ({
+            theme: "dark",
+            position: "fixed",
           } as const);
     };
 
@@ -237,6 +299,7 @@ export const useHeroSectionAnimation = ({ scrollYProgress }: Props) => {
     const text2 = getText2Styles();
     const fixedWrapper = getFixedWrapperStyles();
     const section = getSectionStyles();
+    const header = getHeaderStyles();
 
     setStyles({
       video,
@@ -244,6 +307,7 @@ export const useHeroSectionAnimation = ({ scrollYProgress }: Props) => {
       text2,
       fixedWrapper,
       section,
+      header,
     });
   }, [scrollYProgress]);
 
