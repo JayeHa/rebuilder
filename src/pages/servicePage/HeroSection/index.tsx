@@ -3,33 +3,6 @@ import { useScrollProgress } from "@toss/scroll-animation";
 import { useHeroSectionAnimation } from "./hooks/useHeroSectionAnimation";
 import * as Styled from "./styles";
 
-// const SCROLL_Y_BREAKPOINT = {
-//   0: {
-//     from: { scale: 1, blur: 0, textOpacity: 1 },
-//     to: { scale: 1.5, blur: 1, textOpacity: 0.5 },
-//     dynamicStyles: {
-//       color: "blue",
-//       visibility: "visible",
-//     },
-//   },
-//   225: {
-//     from: { scale: 15, blur: 0.5, textOpacity: 0.2 },
-//     to: { scale: 25, blur: 0.5, textOpacity: 0.9 },
-//     dynamicStyles: {
-//       color: "red",
-//       visibility: "hidden",
-//     },
-//   },
-//   380: {
-//     from: { scale: 12.5, blur: 0.5, textOpacity: 0.9 },
-//     to: { scale: 25, blur: 0.5, textOpacity: 0.9 },
-//     dynamicStyles: {
-//       color: "green",
-//       visibility: "visible",
-//     },
-//   },
-// };
-
 export const HeroSection = () => {
   const { ref, scrollYProgress } = useScrollProgress({
     triggerHook: "onLeave",
@@ -38,7 +11,7 @@ export const HeroSection = () => {
 
   const styles = useHeroSectionAnimation({ scrollYProgress });
 
-  console.log(scrollYProgress, scrollY);
+  // console.log(scrollYProgress, scrollY);
 
   return (
     <Styled.Section ref={ref}>
@@ -50,9 +23,26 @@ export const HeroSection = () => {
         <div
           css={css`
             font-size: 80px;
+            color: red;
           `}
+          style={styles.text1}
         >
           <span>3D Digital Transformation</span>
+        </div>
+
+        <div
+          css={css`
+            font-size: 80px;
+            color: yellow;
+          `}
+          style={styles.text2}
+        >
+          <span>3D Digital Transformation</span>
+          <span>
+            The Next Generation of
+            <br />
+            Digital Transformation
+          </span>
         </div>
       </Styled.FixedWrapper>
     </Styled.Section>
