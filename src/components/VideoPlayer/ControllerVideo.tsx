@@ -6,16 +6,23 @@ import {
 import { ActionButton } from "@components/Buttons/ActionButton";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Video, VideoProps } from "./Video";
 
 export const ControllerVideo = ({ ...props }: VideoProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlay, setIsPlay] = useState(true);
-  // TODO: 기능 구현
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const video = videoRef.current;
+      isPlay ? video.play() : video.pause();
+    }
+  }, [isPlay]);
 
   return (
     <div css={{ position: "relative" }}>
-      <Video {...props} />
+      <Video ref={videoRef} {...props} />
 
       <StyledActionButton onClick={() => setIsPlay((prev) => !prev)}>
         {isPlay && <CircleStop css={svgStyles} />}
