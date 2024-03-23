@@ -17,6 +17,8 @@ export const IconWrapper = styled.div<{ _color: ColorKey }>`
 
   color: ${({ _color }) => colors[_color]};
 
+  cursor: pointer;
+
   &:hover {
     border-radius: 4px;
     color: ${colors["gray3"]};

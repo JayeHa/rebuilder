@@ -23,6 +23,8 @@ export const Carousel = ({ items }: Props) => {
       arrows: false,
       slidesToScroll: 1,
 
+      pauseOnHover: false,
+
       responsive: [
         { breakpoint: breakpoints["smDesktop"], settings: { slidesToShow: 3 } },
         { breakpoint: breakpoints["tablet"], settings: "unslick" },
