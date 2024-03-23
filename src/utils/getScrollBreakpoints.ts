@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export type ScrollAnimation = {
-  from: Record<string, any>;
-  to: Record<string, any>;
-};
-
-export type ScrollAnimationBreakpoints = Record<number, ScrollAnimation>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ScrollAnimationBreakpoints = Record<number, any>;
 
 type Props = {
   breakpoints: ScrollAnimationBreakpoints;

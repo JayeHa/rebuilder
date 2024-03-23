@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { useScrollProgress } from "@toss/scroll-animation";
-import { useVideoAnimation } from "./hooks/useVideoAnimation";
+import { useHeroSectionAnimation } from "./hooks/useHeroSectionAnimation";
 import * as Styled from "./styles";
 
 // const SCROLL_Y_BREAKPOINT = {
@@ -36,14 +36,14 @@ export const HeroSection = () => {
     clip: true,
   });
 
-  const styles = useVideoAnimation({ scrollYProgress });
+  const styles = useHeroSectionAnimation({ scrollYProgress });
 
   console.log(scrollYProgress, scrollY);
 
   return (
     <Styled.Section ref={ref}>
       <Styled.FixedWrapper>
-        <Styled.Video loop playsInline autoPlay muted style={styles}>
+        <Styled.Video loop playsInline autoPlay muted style={styles.video}>
           <source src="/videos/main_video.mp4" type="video/mp4" />
         </Styled.Video>
 
