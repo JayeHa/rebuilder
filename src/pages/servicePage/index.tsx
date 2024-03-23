@@ -1,13 +1,15 @@
 import { Banner } from "./Banner";
 import { HeroSection } from "./HeroSection";
 import { OptimizationSection } from "./OptimizationSection";
+import { SolutionSection } from "./SolutionSection";
 
 export const ServicePage = () => {
   return (
-    <div css={{ height: "1000vh" }}>
+    <div>
       <HeroSection />
       <OptimizationSection />
       <Banner />
+      <SolutionSection />
     </div>
   );
 };
