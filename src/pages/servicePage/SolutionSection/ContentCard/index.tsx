@@ -1,10 +1,12 @@
 import { getObjectEntries } from "@/utils/getObjectProperties";
+import { ControllerVideo } from "@components/VideoPlayer/ControllerVideo";
 import * as Styled from "./styles";
 
 export type SolutionContent = {
   title: string;
   subtitle: string | undefined;
   desc: { [key: string]: string };
+  videoFileName: string;
   videoReference: string | undefined;
 };
 
@@ -13,7 +15,7 @@ type Props = {
 };
 
 export const ContentCard = ({
-  content: { title, subtitle, desc, videoReference },
+  content: { title, subtitle, desc, videoFileName, videoReference },
 }: Props) => {
   return (
     <Styled.ContentCard>
@@ -27,6 +29,7 @@ export const ContentCard = ({
       </Styled.TextWrapper>
 
       <Styled.MediaWrapper>
+        <ControllerVideo src={`/videos/${videoFileName}.mp4`} />
         {videoReference && (
           <Styled.VideoReference>{videoReference}</Styled.VideoReference>
         )}

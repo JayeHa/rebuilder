@@ -2,6 +2,7 @@ import { flex } from "@/styles/utils/flex";
 import {
   mediaQuery,
   mediaQueryScreenAndMaxWidth,
+  mediaQueryScreenAndMinWidth,
 } from "@/styles/utils/mediaQuery";
 import styled from "@emotion/styled";
 
@@ -68,7 +69,6 @@ export const Text = styled.span`
 
     ${mediaQueryScreenAndMaxWidth("smDesktop")`
     text-align: center;
-
     `}
 
     ${mediaQueryScreenAndMaxWidth("tablet")`
@@ -82,15 +82,35 @@ export const Text = styled.span`
 }
 `;
 
-export const MediaWrapper = styled.div``;
+export const MediaWrapper = styled.div`
+  ${mediaQueryScreenAndMinWidth("smDesktop")`
+  margin-left: 40px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("smDesktop")`
+    margin-top: 60px;
+    `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  margin-top: 40px;
+    `}
+
+    ${mediaQuery("only screen and (max-width: 600px)")`
+    margin-top: 28px;
+    `}
+`;
 
 export const VideoReference = styled.small`
+  display: block;
+
+  margin-top: 10px;
+
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 148%;
-  color: rgb(0, 0, 0);
   text-align: right;
-  margin-top: 10px;
+
+  color: rgb(0, 0, 0);
 
   ${mediaQueryScreenAndMaxWidth("smDesktop")`
     color: rgb(111, 117, 123);

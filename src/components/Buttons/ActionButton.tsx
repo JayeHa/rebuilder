@@ -8,7 +8,7 @@ export const ActionButton = ({
   ...props
 }: Props) => {
   return (
-    <button type={type} {...props}>
+    <button type={type} {...props} css={{ cursor: "pointer" }}>
       {children}
     </button>
   );
