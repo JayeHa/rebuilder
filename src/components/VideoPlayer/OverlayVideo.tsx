@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { Video, VideoProps } from "./Video";
 
 type Props = VideoProps & {
-  overlayImgSrc: string;
+  overlayImgSrc?: string;
 };
 
 export const OverlayVideo = ({ overlayImgSrc, ...props }: Props) => {
@@ -12,7 +12,7 @@ export const OverlayVideo = ({ overlayImgSrc, ...props }: Props) => {
     <StyledContainer>
       <Video {...props} />
 
-      <StyledOverlay overlaySrc={overlayImgSrc} />
+      {overlayImgSrc && <StyledOverlay overlaySrc={overlayImgSrc} />}
       <StyledCirclePlus />
     </StyledContainer>
   );

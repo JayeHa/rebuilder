@@ -1,4 +1,5 @@
 import { colors } from "@/styles/constants/colors";
+import { mediaQueryScreenAndMaxWidth } from "@/styles/utils/mediaQuery";
 import styled from "@emotion/styled";
 
 export const StickyContainer = styled.div`
@@ -22,6 +23,11 @@ export const Strong = styled.strong`
   line-height: 140%;
 
   color: rgb(0, 0, 0);
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  `}
 `;
 
 export const Title = styled.h2<{ isActive: boolean }>`
@@ -36,6 +42,15 @@ export const Title = styled.h2<{ isActive: boolean }>`
   font-weight: 600;`
       : `color: ${colors.gray2};
       font-weight: 500;`}
+
+  ${mediaQueryScreenAndMaxWidth("smDesktop")`
+  font-size: 3.6rem;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  `}
 `;
 
 export const Text = styled.span`
@@ -48,4 +63,30 @@ export const Text = styled.span`
   line-height: 170%;
 
   color: rgb(0, 0, 0);
+
+  ${mediaQueryScreenAndMaxWidth("smDesktop")`
+  font-size: 2rem;
+    margin-bottom: 40px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("mobile")`
+  text-align: center;
+  `}
+`;
+
+export const MobileTitle = styled.h2`
+  display: flex;  
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 143.84%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+}
 `;
