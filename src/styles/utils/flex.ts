@@ -1,4 +1,5 @@
 import { SerializedStyles, css } from "@emotion/react";
+import styled from "@emotion/styled";
 import type { CSSProperties } from "react";
 
 type Flex = {
@@ -31,6 +32,27 @@ const center = (props: Center = {}) => css`
   })}
 `;
 
+const column = (props: Omit<Flex, "direction"> = {}) => css`
+  ${flex({ flexDirection: "column", ...props })}
+`;
+
 flex.center = center;
+flex.column = column;
 
 export { flex };
+
+// ======================= Components =======================
+
+export const Flex = styled.div<Flex>`
+  ${(props) => flex(props)}
+`;
+
+export const FlexCenter = styled.div<
+  Omit<Flex, "alignItems" | "justifyContent">
+>`
+  ${(props) => flex.center(props)}
+`;
+
+export const FlexColumn = styled.div<Omit<Flex, "direction">>`
+  ${(props) => flex.column(props)}
+`;
