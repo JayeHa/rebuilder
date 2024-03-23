@@ -1,4 +1,10 @@
+import { BannerLogo } from "@/assets/images";
 import { flex } from "@/styles/utils/flex";
+import {
+  mediaQueryScreenAndMaxWidth,
+  mobileHidden,
+  mobileOnly,
+} from "@/styles/utils/mediaQuery";
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
@@ -7,6 +13,18 @@ export const Container = styled.div`
   height: 400px;
   background: rgb(0, 0, 229);
   overflow: hidden;
+
+  ${mediaQueryScreenAndMaxWidth("laptop")`
+  height: 280px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  height: 160px;
+  `}
+  
+  ${mediaQueryScreenAndMaxWidth("mobile")`
+  height: 140px;
+  `}
 `;
 
 export const Background = styled.div`
@@ -19,7 +37,6 @@ export const Background = styled.div`
 `;
 
 export const Banner = styled.div`
-  width: 100%;
   max-width: 1200px;
 
   padding: 0 24px;
@@ -27,13 +44,49 @@ export const Banner = styled.div`
 `;
 
 export const FlexColumn = styled.div`
-  ${flex.column()}
+  ${flex.column({ gap: "48px" })}
 
   position: absolute;
   top: 50%;
-  transform: translate(0px, -50%);
   z-index: 1;
-  gap: 48px;
+
+  transform: translate(0px, -50%);
+
+  ${mediaQueryScreenAndMaxWidth("laptop")`
+  gap: 32px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  gap: 19px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("mobile")`
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  gap: 8px;
+  
+  align-items: center;
+  text-align: center;
+  `}
+`;
+
+export const Logo = styled(BannerLogo)`
+  width: 90px;
+  height: 90px;
+
+  ${mediaQueryScreenAndMaxWidth("laptop")`
+  width: 66px;
+  height: 66px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  width: 40px;
+  height: 40px;
+  `}
+
+  ${mobileHidden}
 `;
 
 export const Strong = styled.strong`
@@ -41,6 +94,16 @@ export const Strong = styled.strong`
   font-size: 2rem;
   font-weight: 600;
   line-height: 140%;
+
+  ${mediaQueryScreenAndMaxWidth("laptop")`
+  font-size: 1.3rem;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  font-size: 0.8rem;
+  `}
+
+  ${mobileHidden}
 `;
 
 export const Title = styled.h2`
@@ -48,6 +111,18 @@ export const Title = styled.h2`
   font-size: 5.6rem;
   font-weight: 600;
   line-height: 120%;
+
+  ${mediaQueryScreenAndMaxWidth("laptop")`
+  font-size: 3.7rem;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  font-size: 2.2rem;
+  `}
+  
+  ${mediaQueryScreenAndMaxWidth("mobile")`
+  font-size: 2rem;
+  `}
 `;
 
 export const Text = styled.div`
@@ -55,4 +130,24 @@ export const Text = styled.div`
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 140%;
+
+  margin-top: 4px;
+
+  ${mediaQueryScreenAndMaxWidth("laptop")`
+  font-size: 1.6rem;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  font-size: 1rem;
+  `}
+`;
+
+export const MobileMoreButton = styled.a`
+  ${mobileOnly}
+
+  align-items: center;
+  color: rgb(255, 255, 255);
+  gap: 2px;
+
+  font-size: 0.8rem;
 `;

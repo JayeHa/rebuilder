@@ -13,3 +13,15 @@ export const mediaQueryScreenAndMaxWidth = (maxWidth: BreakpointType) =>
 
 export const mediaQueryScreenAndMinWidth = (minWidth: BreakpointType) =>
   mediaQuery(`screen and (min-width: ${breakpoints[minWidth] - 1}px)`);
+
+export const mobileHidden = css`
+  ${mediaQueryScreenAndMaxWidth("mobile")`
+  display: none
+  `}
+`;
+
+export const mobileOnly = css`
+  ${mediaQueryScreenAndMinWidth("mobile")`
+  display: none
+  `}
+`;
