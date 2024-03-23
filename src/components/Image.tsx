@@ -11,5 +11,6 @@ export const Image = ({ ...props }: Props) => {
 };
 
 const StyledImage = styled.img`
+  display: block;
   width: 100%;
 `;

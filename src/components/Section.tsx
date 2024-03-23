@@ -31,9 +31,8 @@ const StyledContainer = styled.div<{ hasMaxWidth: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
-  ${({ hasMaxWidth }) => hasMaxWidth && "max-width: 1200px;"}
+  ${({ hasMaxWidth }) => hasMaxWidth && "max-width: 1200px; padding: 0px 30px;"}
 
-  padding: 0px 30px;
   margin: 0 auto;
 
   white-space: pre-wrap;
