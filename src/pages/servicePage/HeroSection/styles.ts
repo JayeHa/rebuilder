@@ -2,6 +2,7 @@ import { colors } from "@/styles/constants/colors";
 import { zIndex } from "@/styles/constants/zIndexes";
 import { flex } from "@/styles/utils/flex";
 import { mediaQueryScreenAndMaxWidth } from "@/styles/utils/mediaQuery";
+import { Video as _Video } from "@components/VideoPlayer/Video";
 import styled from "@emotion/styled";
 
 export const Section = styled.section`
@@ -22,7 +23,7 @@ export const FixedWrapper = styled.div`
   -webkit-box-pack: center;
 `;
 
-export const Video = styled.video`
+export const Video = styled(_Video)`
   width: 640px;
   height: auto;
 `;
