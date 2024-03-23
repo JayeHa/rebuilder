@@ -1,12 +1,9 @@
-import { colors } from "@/styles/constants/colors";
 import { zIndex } from "@/styles/constants/zIndexes";
 import { flex } from "@/styles/utils/flex";
 import styled from "@emotion/styled";
 
 export const Section = styled.section`
   height: 150vh;
-
-  background: green;
 `;
 
 export const FixedWrapper = styled.div`
@@ -17,8 +14,6 @@ export const FixedWrapper = styled.div`
   ${flex.center({ flexDirection: "column" })}
   width: 100%;
   height: 100vh;
-
-  //   background: ${colors.black};
 
   object-fit: cover;
   -webkit-box-align: center;
