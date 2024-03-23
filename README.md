@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Rebuilder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 설치 및 실행방법
 
-Currently, two official plugins are available:
+프로젝트를 로컬 환경에서 실행하기 위해 다음 단계를 따라 주세요:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/JayeHa/rebuilder.git
+cd rebuilder
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+yarn install
+yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 프로젝트 기본 정보
+
+- 개발 기간: `2024.03.21` - `2024.03.24`
+- 배포 링크: [rebuilder.vercel.app](https://rebuilder.vercel.app/)
+- 깃허브 링크: [github.com/JayeHa/rebuilder](https://github.com/JayeHa/rebuilder)
+
+## 기술 스택
+
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"><img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"><img src="https://img.shields.io/badge/i18next-26A69A?style=for-the-badge&logo=i18next&logoColor=white">
+<img src="https://img.shields.io/badge/emotion-FE5196?style=for-the-badge"><img src="https://img.shields.io/badge/react_slick-24A47F?style=for-the-badge">
