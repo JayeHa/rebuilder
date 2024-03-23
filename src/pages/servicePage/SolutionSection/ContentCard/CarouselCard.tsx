@@ -1,3 +1,8 @@
+import { useResponsive } from "@/hooks/useResponsive";
+import {
+  mediaQuery,
+  mediaQueryScreenAndMaxWidth,
+} from "@/styles/utils/mediaQuery";
 import { getObjectEntries } from "@/utils/getObjectProperties";
 import { Carousel } from "@components/Carousel";
 import { Image } from "@components/Image";
@@ -15,6 +20,8 @@ type Props = {
 };
 
 export const CarouselCard = ({ content: { title, subtitle, desc } }: Props) => {
+  const { isMobileDevice } = useResponsive();
+
   const carouselItems = Array.from({ length: 4 }, (_, index) => (
     <Image src={`/images/carousel/${index + 1}.png`} />
   ));
@@ -31,7 +38,10 @@ export const CarouselCard = ({ content: { title, subtitle, desc } }: Props) => {
       </Styled.TextWrapper>
 
       <StyledCarouselContainer>
-        <Carousel items={carouselItems} />
+        {!isMobileDevice && <Carousel items={carouselItems} />}
+        {isMobileDevice && (
+          <StyledGrid>{carouselItems.map((item) => item)}</StyledGrid>
+        )}
       </StyledCarouselContainer>
     </StyledContainer>
   );
@@ -54,4 +64,23 @@ const StyledCarouselContainer = styled.div`
   top: 200px;
   right: 0px;
   width: 54.7%;
+
+  ${mediaQueryScreenAndMaxWidth("smDesktop")`
+  position: unset;
+  top: unset;
+  right: unset;
+  width: 100%;
+  margin-top: 60px;
+  `}
+`;
+
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 16px;
+  margin-top: 40px;
+
+  ${mediaQuery("only screen and (max-width: 600px)")`
+    gap: 10px;
+    `}
 `;

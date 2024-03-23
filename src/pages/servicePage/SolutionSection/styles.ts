@@ -17,6 +17,14 @@ export const CarouselContainer = styled.div`
 
   margin: 0 auto;
   `}
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  padding: 100px 120px 0px;
+  `}
+
+  ${mediaQueryScreenAndMaxWidth("mobile")`
+  padding: 80px 20px 0px;
+  `}
 `;
 
 export const CardsContainer = styled.div`

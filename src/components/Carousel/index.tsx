@@ -1,3 +1,4 @@
+import { breakpoints } from "@/styles/constants/breakpoints";
 import styled from "@emotion/styled";
 import { ReactNode, useMemo } from "react";
 import Slider, { Settings } from "react-slick";
@@ -21,22 +22,23 @@ export const Carousel = ({ items }: Props) => {
       initialSlide: 0,
       arrows: false,
       slidesToScroll: 1,
+
+      responsive: [
+        { breakpoint: breakpoints["smDesktop"], settings: { slidesToShow: 3 } },
+        { breakpoint: breakpoints["tablet"], settings: "unslick" },
+      ],
     }),
     []
   );
 
   return (
-    <StyledContainer>
-      <Slider {...settings}>
-        {items.map((item, index) => (
-          <StyledItem key={index}>{item}</StyledItem>
-        ))}
-      </Slider>
-    </StyledContainer>
+    <Slider {...settings}>
+      {items.map((item, index) => (
+        <StyledItem key={index}>{item}</StyledItem>
+      ))}
+    </Slider>
   );
 };
-
-const StyledContainer = styled.div``;
 
 const StyledItem = styled.div`
   padding: 0 8px;
