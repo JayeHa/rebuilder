@@ -4,6 +4,12 @@ import { flex } from "@/styles/utils/flex";
 import styled from "@emotion/styled";
 
 export const Section = styled.section`
+  height: 150vh;
+
+  background: green;
+`;
+
+export const FixedWrapper = styled.div`
   position: fixed;
   overflow: hidden;
   z-index: ${zIndex.heroSection};
@@ -18,8 +24,6 @@ export const Section = styled.section`
   -webkit-box-align: center;
   -webkit-box-pack: center;
 `;
-
-// export const VideoWrapper = styled.div``;
 
 export const Video = styled.video`
   width: 640px;

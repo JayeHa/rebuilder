@@ -1,14 +1,12 @@
-import { useTranslation } from "react-i18next";
+import { useScrollProgress } from "@toss/scroll-animation";
 import { HeroSection } from "./HeroSection";
 
 export const ServicePage = () => {
-  const { t } = useTranslation("service");
+  const { ref } = useScrollProgress<HTMLDivElement>();
 
   return (
-    <div css={{ height: "150vh" }}>
+    <div ref={ref} css={{ height: "1000vh" }}>
       <HeroSection />
-
-      {t("3dModelSection.optimizationPart.title")}
     </div>
   );
 };
