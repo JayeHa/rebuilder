@@ -4,10 +4,10 @@ import * as Styled from "./styles";
 
 export type SolutionContent = {
   title: string;
-  subtitle: string | undefined;
+  subtitle?: string;
   desc: { [key: string]: string };
   videoFileName: string;
-  videoReference: string | undefined;
+  videoReference?: string;
 };
 
 type Props = {
