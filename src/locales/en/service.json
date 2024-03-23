@@ -41,12 +41,16 @@
   },
 
   "solutionSection": {
-    "marketing": {
-      "title": "Commerce 3D Item Creation",
-      "subtitle": "E-commerce marketing",
-      "text1": "Try using the photo-based",
-      "text2": "3D scanning solution",
-      "text3": "in various platforms and services."
+    "carousel": {
+      "marketing": {
+        "title": "Commerce 3D Item Creation",
+        "subtitle": "E-commerce marketing",
+        "desc": {
+          "text1": "Try using the photo-based",
+          "text2": "3D scanning solution",
+          "text3": "in various platforms and services."
+        }
+      }
     },
     "contents": {
       "manufacturing": {

@@ -40,11 +40,15 @@
   },
 
   "solutionSection": {
-    "marketing": {
-      "title": "커머스 3D 아이템 제작",
-      "subtitle": "이커머스 마케팅",
-      "text1": "다양한 플랫폼과 서비스에서",
-      "text2": "사진 기반의 3D 스캔 솔루션을 이용해보세요."
+    "carousel": {
+      "marketing": {
+        "title": "커머스 3D 아이템 제작",
+        "subtitle": "이커머스 마케팅",
+        "desc": {
+          "text1": "다양한 플랫폼과 서비스에서",
+          "text2": "사진 기반의 3D 스캔 솔루션을 이용해보세요."
+        }
+      }
     },
     "contents": {
       "manufacturing": {
