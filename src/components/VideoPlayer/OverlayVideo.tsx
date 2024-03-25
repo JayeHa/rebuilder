@@ -1,5 +1,9 @@
 import { CirclePlus } from "@/assets/images";
 import { zIndex } from "@/styles/constants/zIndexes";
+import {
+  mediaQuery,
+  mediaQueryScreenAndMaxWidth,
+} from "@/styles/utils/mediaQuery";
 import styled from "@emotion/styled";
 import { Video, VideoProps } from "./Video";
 
@@ -47,4 +51,18 @@ const StyledCirclePlus = styled(CirclePlus)`
   z-index: ${zIndex.overlayIcon};
 
   pointer-events: none;
+
+  ${mediaQueryScreenAndMaxWidth("tablet")`
+  width: 20px;
+  height: 20px;
+  right: 7.9px;
+  bottom: 7.9px;
+  `}
+
+  ${mediaQuery("only screen and (max-width: 600px)")`
+  width: 26px;
+  height: 26px;
+  right: 10px;
+  bottom: 10px;
+    `}
 `;

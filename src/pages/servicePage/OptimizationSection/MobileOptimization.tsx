@@ -33,12 +33,9 @@ export const MobileOptimization = () => {
           <br />
           {t("usagePart.mobileDescription.text3")}
         </Styled.Text>
-        <OverlayVideo
-          src="/videos/service_video_mobile_ko.mp4"
-          css={{ marginBottom: 20 }}
-        />
+        <OverlayVideo src="/videos/service_video_mobile_ko.mp4" />
 
-        <Styled.Text>
+        <Styled.Text css={{ marginTop: 20 }}>
           {t("usagePart.mobileDescription.text4")}
           <br />
           {t("usagePart.mobileDescription.text5")}
