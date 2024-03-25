@@ -125,7 +125,7 @@ export const VideoReference = styled.small`
     ${mediaQuery("only screen and (max-width: 600px)")`
     font-size: 0.8rem;
     margin-top: 8px;
-    max-width: 215px;
+  
     white-space: pre-wrap;
     `}
 `;
