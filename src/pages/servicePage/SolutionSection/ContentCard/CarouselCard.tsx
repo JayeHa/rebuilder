@@ -23,7 +23,7 @@ export const CarouselCard = ({ content: { title, subtitle, desc } }: Props) => {
   const { isMobileDevice } = useResponsive();
 
   const carouselItems = Array.from({ length: 4 }, (_, index) => (
-    <Image src={`/images/carousel/${index + 1}.png`} />
+    <Image key={index} src={`/images/carousel/${index + 1}.png`} />
   ));
 
   return (
